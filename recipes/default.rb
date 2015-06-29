@@ -56,12 +56,3 @@ end
 service "php-fpm" do
   action [ :enable, :start ]
 end
-
-bash 'install wordpress' do
-  creates '/usr/share/nginx/html/wordpress'
-  cwd '/usr/share/nginx/html'
-  code <<-EOH
-  curl -LO https://wordpress.org/latest.tar.gz
-  tar zxvf latest.tar.gz
-  EOH
-end
